@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+      body {
+        background-color: red;
+        animation: flicker 1s linear infinite;
+      }
+      
+      @keyframes flicker {
+        0% {
+          background-color: red;
+        }
+        50% {
+          background-color: green;
+        }
+        100% {
+          background-color: red;
+        }
+      }
+      
+      #generated-sentence {
+        font-size: 24px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <center><h1>生成器</h1>
+    <form>
+      <p>
+        <label for="part1"></label>
+        <input type="text" id="part1" name="part1">
+        <label for="part2"></label>
+        <input type="text" id="part2" name="part2">
+        <label for="part3"></label>
+        <input type="text" id="part3" name="part3">
+      </p>
+      <button type="button" id="submit-btn">生成！</button>
+    </form></center>
+    
+    <div id="generated-sentence" style="display: none;"></div>
+    
+    <script>
+      const submitBtn = document.querySelector("#submit-btn");
+      submitBtn.addEventListener("click", function() {
+        const part1 = document.querySelector("#part1").value;
+        const part2 = document.querySelector("#part2").value;
+        const part3 = document.querySelector("#part3").value;
+        const generatedSentence = `只要${part1}不管${part2}到哪个${part3}都不会欢迎你的`;
+        document.querySelector("#generated-sentence").innerText = generatedSentence;
+        document.querySelector("#generated-sentence").style.display = "block";
+      });
+    </script>
+  </body>
+</html>
